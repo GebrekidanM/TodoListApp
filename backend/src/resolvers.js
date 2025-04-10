@@ -17,12 +17,18 @@ const resolvers = {
         data: { title},
       });
     },
-    toggleTodo: async(_, {id})=>{
+
+    toggleTodo: async (_, { id }) => {
+      const todo = await prisma.todo.findUnique({ where: { id: parseInt(id) } });
+      
+      if (!todo) throw new Error("Todo not found");
+    
       return await prisma.todo.update({
-        where :{id:parseInt(id)},
-        data:{completed: !todo.completed}
-      })
+        where: { id: parseInt(id) },
+        data: { completed: !todo.completed },
+      });
     }
+    
   },
 };
 
