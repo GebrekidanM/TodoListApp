@@ -38,3 +38,12 @@ export const TOGGLE_TODO = gql`
     }
   }
 `;
+
+export const  DELETE_TODO = gql`
+  mutation DeleteTodo($id:Int!){
+    deleteTodo(id:$id){
+      id
+      title
+    }
+  }
+` 

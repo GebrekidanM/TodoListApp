@@ -27,6 +27,12 @@ const resolvers = {
         where: { id: parseInt(id) },
         data: { completed: !todo.completed },
       });
+    },
+    
+    deleteTodo: async (_,{id})=>{
+      const todo = await prisma.todo.delete({where:{id:parseInt(id)}});
+      if (!todo) throw new Error("Todo is not deleted!");
+      return todo;
     }
     
   },
