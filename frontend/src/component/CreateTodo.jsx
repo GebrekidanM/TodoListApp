@@ -2,6 +2,7 @@ import { useMutation } from '@apollo/client';
 import React, { useState } from 'react'
 import { ADD_TODO, GET_TODOS } from '../graphql';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 const CreateTodo = () => {
     const [newTodo, setNewTodo] = useState("");
@@ -26,12 +27,11 @@ const CreateTodo = () => {
   return (
     <div className='flex flex-col gap-3 w-1/4 ml-[25%]'>
       <h2 className='font-bold text-neutral-300 text-2xl bg-neutral-900 p-2 rounded-t-sm'>Create your activities</h2>
-      <input 
-        className='p-2 border border-neutral-500 rounded-sm '
-        type="text" 
-        placeholder="Enter task" 
-        value={newTodo} 
-        onChange={(e) => setNewTodo(e.target.value)} 
+      <Input 
+        className={'border-neutral-500 rounded-sm'}
+        placeholder="Enter task"
+        value={newTodo}
+        onChange={(e) => setNewTodo(e.target.value)}
       />
       <Button
         disabled={loading || !newTodo.trim()}

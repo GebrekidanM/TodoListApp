@@ -33,7 +33,18 @@ const resolvers = {
       const todo = await prisma.todo.delete({where:{id:parseInt(id)}});
       if (!todo) throw new Error("Todo is not deleted!");
       return todo;
+    },
+
+    updateTodo: async (_, { id, title }) => {
+      const updated = await prisma.todo.update({
+        where: { id },
+        data: { title },
+      });
+    
+      return updated;
     }
+    
+
     
   },
 };

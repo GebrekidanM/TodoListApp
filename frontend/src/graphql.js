@@ -47,3 +47,13 @@ export const  DELETE_TODO = gql`
     }
   }
 ` 
+
+export const UPDATE_TODO = gql`
+  mutation UpdateTodo($id: Int!, $title: String!) {
+  updateTodo(id: $id, title: $title) {
+    id
+    title
+    completed
+  }
+}
+`

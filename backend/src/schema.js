@@ -16,6 +16,7 @@ const typeDefs = gql`
     createTodo(title: String!):Todo
     toggleTodo(id:Int!):Todo
     deleteTodo(id:Int!):Todo
+    updateTodo(id:Int!,title:String!):Todo
   }
 `;
 
